@@ -82202,7 +82202,8 @@ class Input {
     deleteUsedDerivedDataCache;
     token;
     verbose;
-    constructor(key, restoreKeys, derivedDataDirectory, sourcePackagesDirectory, restoreMtimeTargets, swiftpmPackageResolvedFile, swiftpmCacheKey, swiftpmCacheRestoreKeys, useDefaultMtimeTargets, deleteUsedDerivedDataCache, token, verbose) {
+    saveAlways;
+    constructor(key, restoreKeys, derivedDataDirectory, sourcePackagesDirectory, restoreMtimeTargets, swiftpmPackageResolvedFile, swiftpmCacheKey, swiftpmCacheRestoreKeys, useDefaultMtimeTargets, deleteUsedDerivedDataCache, token, verbose, saveAlways) {
         this.key = key;
         this.restoreKeys = restoreKeys;
         this.derivedDataDirectory = derivedDataDirectory;
@@ -82215,6 +82216,7 @@ class Input {
         this.deleteUsedDerivedDataCache = deleteUsedDerivedDataCache;
         this.token = token;
         this.verbose = verbose;
+        this.saveAlways = saveAlways;
     }
     getDerivedDataDirectory() {
         let result = this.derivedDataDirectory;
@@ -82269,7 +82271,7 @@ async function debugLocalInput() {
 }
 exports.debugLocalInput = debugLocalInput;
 function getInput() {
-    return new Input(core.getInput('key'), core.getMultilineInput('restore-keys'), getInputOrNull('deriveddata-directory'), getInputOrNull('sourcepackages-directory'), core.getMultilineInput('restore-mtime-targets'), core.getMultilineInput('swiftpm-package-resolved-file'), getInputOrNull('swiftpm-cache-key'), core.getMultilineInput('swiftpm-cache-restore-keys'), core.getBooleanInput('use-default-mtime-targets'), core.getBooleanInput('delete-used-deriveddata-cache'), core.getInput('token'), core.getBooleanInput('verbose'));
+    return new Input(core.getInput('key'), core.getMultilineInput('restore-keys'), getInputOrNull('deriveddata-directory'), getInputOrNull('sourcepackages-directory'), core.getMultilineInput('restore-mtime-targets'), core.getMultilineInput('swiftpm-package-resolved-file'), getInputOrNull('swiftpm-cache-key'), core.getMultilineInput('swiftpm-cache-restore-keys'), core.getBooleanInput('use-default-mtime-targets'), core.getBooleanInput('delete-used-deriveddata-cache'), core.getInput('token'), core.getBooleanInput('verbose'), core.getBooleanInput('save-always'));
 }
 exports.getInput = getInput;
 function getInputOrNull(name) {
