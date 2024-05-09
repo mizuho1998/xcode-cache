@@ -24,7 +24,6 @@ async function main() {
       throw new Error(`setup-xcode supports only macOS, current host is ${runnerOs}`)
     }
     const input = getInput()
-    core.info('!!!!!!!!!!!!!')
     core.info('Input parameters:')
     Object.entries(input).forEach(([key, value]) => {
       core.info(`  ${key} = ${value}`)
