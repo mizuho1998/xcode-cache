@@ -270,6 +270,12 @@ Please see the official document of GitHub Actions Cache management for more det
         # optional
         # default: false
         verbose: false
+
+        # Run the post step to save the cache even if another step before fails
+        #
+        # optional
+        # default: false
+        save-always: false
 ```
 
 # Outputs
