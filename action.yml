@@ -52,8 +52,12 @@ inputs:
     description: 'enable verbose logging'
     required: false
     default: 'false'
+  save-always:
+    description: 'Run the post step to save the cache even if another step before fails'
+    default: 'false'
+    required: false
 runs:
   using: 'node20'
   main: 'dist/main/index.js'
   post: 'dist/post/index.js'
-  post-if: success()
+  post-if: 'success() || github.event.inputs.save-always'
