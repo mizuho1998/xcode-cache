@@ -18,8 +18,9 @@ class Input {
     public useDefaultMtimeTargets: boolean,
     public deleteUsedDerivedDataCache: boolean,
     public token: string,
-    public verbose: boolean
-  ) {}
+    public verbose: boolean,
+    public saveAlways: boolean
+  ) { }
 
   getDerivedDataDirectory(): string {
     let result = this.derivedDataDirectory
@@ -89,7 +90,8 @@ export function getInput(): Input {
     core.getBooleanInput('use-default-mtime-targets'),
     core.getBooleanInput('delete-used-deriveddata-cache'),
     core.getInput('token'),
-    core.getBooleanInput('verbose')
+    core.getBooleanInput('verbose'),
+    core.getBooleanInput('save-always')
   )
 }
 
